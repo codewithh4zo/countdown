@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    div#gerisayim {
+        text-align: center;
+        font-size: 3vw; /* Responsive font size */
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #ffffff;
+        color: #007bff; /* Bootstrap primary color for example */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* subtle shadow */
+        max-width: 600px;
+        margin: 40px auto; /* Center div */
+    }
+
+    @media (min-width: 768px) {
+        div#gerisayim {
+            font-size: 2rem; /* Larger font size for larger screens */
+        }
+    }
+    </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+div {
+    text-align: center;
+    font-size: 55px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<div id="gerisayim"></div>
+
+<script>
+var countDownDate = new Date("2024-07-03 09:00:00").getTime();
+
+var x = setInterval(function() {
+
+        var now = new Date().getTime();
+        
+        var distance = countDownDate - now;
+        
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("gerisayim").innerHTML = days + " gün " + hours + " saat "
+        + minutes + " dakika " + seconds + " saniye ";
+        
+        if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("gerisayim").innerHTML = "Süre doldu";
+        }
+}, 1000);
+</script>
+
+</body>
+</html>
